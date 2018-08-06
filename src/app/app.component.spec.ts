@@ -22,6 +22,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to AngularDemo!');
+    expect(compiled.querySelector('h1').textContent).toContain('AngularDemo');
+  }));
+  it('should increase points by 1 if button clicked', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    expect(fixture.componentInstance.points).toBe(1);
+    fixture.debugElement.nativeElement.querySelector('button').click();
+    expect(fixture.componentInstance.points).toBe(2);
   }));
 });
